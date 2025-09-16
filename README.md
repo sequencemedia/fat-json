@@ -47,7 +47,7 @@ const d = {
 }
 
 const s = JSON.stringify(d, useReplacerWithPath((key, value, path) => {
-  if (if path === '$.id') return String(value)
+  if (path === '$.id') return String(value)
 
   return value
 }))
