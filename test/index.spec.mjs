@@ -13,7 +13,7 @@ import {
   useReviverWithType,
   useReplacerWithPath,
   useReviverWithPath
-} from '#big-int'
+} from '#fat-json'
 
 use(sinonChai)
 
