@@ -1,6 +1,15 @@
 {
   "name": "fat-json",
   "version": "0.0.2",
+  "keywords": [
+    "JSON",
+    "stringify",
+    "parse",
+    "replacer",
+    "reviver",
+    "BigInt",
+    "Buffer"
+  ],
   "main": "./src/index.mjs",
   "type": "module",
   "types": "./src/index.d.mts",
