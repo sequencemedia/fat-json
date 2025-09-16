@@ -1,0 +1,40 @@
+{
+  "name": "fat-json",
+  "version": "0.0.0",
+  "main": "./src/index.mjs",
+  "type": "module",
+  "types": "./src/index.d.mts",
+  "author": {
+    "name": "Jonathan Perry for Sequence Media Limited",
+    "email": "sequencemedia@sequencemedia.net",
+    "url": "https://sequencemedia.net"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sequencemedia/fat-json.git"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "devDependencies": {
+    "@sequencemedia/eslint-config-standard": "^0.2.82",
+    "@sequencemedia/eslint-config-typescript": "^0.1.141",
+    "@sequencemedia/sinon-chai": "^0.0.186",
+    "@types/chai": "^5.2.2",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.5.0",
+    "@types/sinon": "^17.0.4",
+    "chai": "^6.0.1",
+    "eslint": "^9.35.0",
+    "globals": "^16.4.0",
+    "mocha": "^11.7.2",
+    "sinon": "^21.0.0"
+  },
+  "imports": {
+    "#fat-json": "./src/index.mjs",
+    "#common": "./src/common/index.mjs",
+    "#transformers": "./src/transformers/index.mjs"
+  }
+}
