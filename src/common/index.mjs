@@ -4,18 +4,28 @@
 
 export const BIG_INT = /^(\d+)n$/
 
-/**
- *  @param {ValueType | ValueType[]} v
- *  @returns {v is any[]}
- */
-export function isArray (v) {
-  return Array.isArray(v)
+export function formatNumber (key) {
+  return `[${key}]`
+}
+
+export function formatString (key) {
+  return /[ .]/.test(key)
+    ? `.['${key}']`
+    : `.${key}`
 }
 
 /**
- *  @param {ValueType | ValueType[]} v
- *  @returns {v is object}
+ *  @param {ValueType | ValueType[]} value
+ *  @returns {value is any[]}
  */
-export function isObject (v) {
-  return (v || false) instanceof Object && !Array.isArray(v)
+export function isArray (value) {
+  return Array.isArray(value)
+}
+
+/**
+ *  @param {ValueType | ValueType[]} value
+ *  @returns {value is object}
+ */
+export function isObject (value) {
+  return (value || false) instanceof Object && !Array.isArray(value)
 }

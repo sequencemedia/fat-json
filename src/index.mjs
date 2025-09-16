@@ -1,9 +1,6 @@
 /**
  *  @typedef {FatJsonTypes.ValueType} ValueType
  */
-import {
-  BIG_INT
-} from './common/index.mjs'
 import getPath from './replacer/index.mjs'
 import genPath from './reviver/index.mjs'
 
@@ -84,66 +81,6 @@ export function useReviverWithPath (reviver) {
       }
 
       return this[key] = reviver.call(this, key, value, '$')
-    }
-
-    return value
-  }
-}
-
-/**
- *  @param {PropertyKey} key
- *  @param {ValueType} value
- *  @returns {ValueType}
- */
-export function replacer (key, value) {
-  if (typeof value === 'bigint') return String(value) + 'n'
-
-  return value
-}
-
-/**
- *  @param {PropertyKey} key
- *  @param {ValueType} value
- *  @returns {ValueType}
- */
-export function reviver (key, value) {
-  if (typeof value === 'string' && BIG_INT.test(value)) return BigInt (value.replace(BIG_INT, '$1'))
-
-  return value
-}
-
-/**
- *  @param {Set<PropertyKey>} [set]
- *  @returns {(key: PropertyKey, value: ValueType) => ValueType}
- */
-export function getReplacerFor (set = new Set()) {
-  /**
-   *  @param {PropertyKey} key
-   *  @param {ValueType} value
-   *  @returns {ValueType}
-   */
-  return function replacer (key, value) {
-    if (set.has(key)) {
-      if (typeof value === 'bigint') return String(value)
-    }
-
-    return value
-  }
-}
-
-/**
- *  @param {Set<PropertyKey>} [set]
- *  @returns {(key: PropertyKey, value: ValueType) => ValueType}
- */
-export function getReviverFor (set = new Set()) {
-  /**
-   *  @param {PropertyKey} key
-   *  @param {ValueType} value
-   *  @returns {ValueType}
-   */
-  return function reviver (key, value) {
-    if (set.has(key)) {
-      if (typeof value === 'string') return BigInt(value)
     }
 
     return value

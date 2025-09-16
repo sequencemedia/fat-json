@@ -1,4 +1,6 @@
 import {
+  formatNumber,
+  formatString,
   isArray,
   isObject
 } from '#common'
@@ -20,12 +22,8 @@ export default function getPath (key, value, context) {
     valuePath = (
       contextPath + (
         Array.isArray(context)
-          ? `[${key}]`
-          : ( // valuePath.includes(SP) || valuePath.includes(ST)
-              /[ .]/.test(key)
-                ? `.['${key}']`
-                : `.${key}`
-            )
+          ? formatNumber(key)
+          : formatString(key)
       )
     )
   }

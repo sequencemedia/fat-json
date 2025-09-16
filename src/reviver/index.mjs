@@ -6,6 +6,8 @@
  */
 
 import {
+  formatNumber,
+  formatString,
   isArray,
   isObject
 } from '#common'
@@ -16,15 +18,17 @@ import {
  *  @returns {IterableIterator<{ key: PropertyKey; value: unknown; path: string; context: any }>}
  */
 function * genPathForArray (context, contextPath) {
-  for (const [index, value] of context.entries()) {
-    const valuePath = contextPath + `[${index}]`
+  for (const [key, value] of context.entries()) {
+    const valuePath = (
+      contextPath + formatNumber(key)
+    )
 
     if (isArray(value)) yield * genPathForArray(value, valuePath)
 
     if (isObject(value)) yield * genPathForObject(value, valuePath)
 
     yield {
-      key: String(index),
+      key: String(key),
       value,
       path: valuePath,
       context
@@ -40,11 +44,7 @@ function * genPathForArray (context, contextPath) {
 function * genPathForObject (context, contextPath) {
   for (const [key, value] of Object.entries(context)) {
     const valuePath = (
-      contextPath + (
-        /[ .]/.test(key)
-          ? `.['${key}']`
-          : `.${key}`
-      )
+      contextPath + formatString(key)
     )
 
     if (isArray(value)) yield * genPathForArray(value, valuePath)
@@ -69,12 +69,8 @@ function * genPathForObject (context, contextPath) {
 export default function * genPath (key, value, context) {
   const valuePath = key
     ? typeof key === 'number'
-      ? `[${key}]`
-      : (
-          /[ .]/.test(key)
-            ? `.['${key}']`
-            : `.${key}`
-        )
+      ? formatNumber(key)
+      : formatString(key)
     : '$'
 
   if (isArray(value)) yield * genPathForArray(value, valuePath)

@@ -10,7 +10,7 @@ export function fromBigIntToString (value) {
  *  @param {string} value
  *  @returns {BigInt}
  */
-export function fromStringToBigInt (value) {
+export function formatStringToBigInt (value) {
   return BigInt(value)
 }
 
@@ -18,10 +18,8 @@ export function fromStringToBigInt (value) {
  * @param {string} b
  * @returns {number}
  */
-function toCodePoint (b) {
-  const c = b.codePointAt(0)
-
-  return Number(c)
+function toInteger (b) {
+  return b.codePointAt(0) ?? 0
 }
 
 /**
@@ -33,7 +31,7 @@ function toCodePoint (b) {
  */
 export function fromBase64ToBuffer (base64) {
   const binary = atob(base64) // base64 string to binary string
-  const uint8Array = Uint8Array.from(binary, toCodePoint) // binary string to code point integer
+  const uint8Array = Uint8Array.from(binary, toInteger) // binary string to code point integer
   return Buffer.from(uint8Array)
 }
 
