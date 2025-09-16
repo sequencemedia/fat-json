@@ -6,7 +6,7 @@ import {
 } from 'chai'
 
 import Sinon from 'sinon'
-import sinonChai from '@sequencemedia/sinon-chai'
+import sinonChai from 'sinon-chai'
 
 import {
   useReplacerWithType,
