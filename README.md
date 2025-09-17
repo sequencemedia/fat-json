@@ -1,6 +1,6 @@
 # Fat Json
 
-Stringify and parse non-standard JSON data types: _reviver_ and _replacer_ functions for the built-in `JSON` object
+Stringify and parse non-standard JSON [data types](#from-wikipedia): _reviver_ and _replacer_ functions for the built-in `JSON` object
 
 ## Install
 
@@ -12,7 +12,11 @@ npm i fat-json
 
 Transforming _standard data types_ using the built-in `JSON` object is simple, but the JavaScript language now features other types like `BigInt` which don't serialise/cannot be coerced to another type without potential data loss
 
-Serialising and de-serialising with `JSON.stringify()` and `JSON.parse()` provides _some_ opportunity to safely transform data from one type to another with _replacer_ and _reviver_ functions, but while it's not hard to argue with the simplicity of transforming from a `BigInt` to a `String` ...
+Serialising and de-serialising with `JSON.stringify()` and `JSON.parse()` provides _some_ opportunity to safely transform data from one type to another with _replacer_ and _reviver_ functions
+
+#### A typical replacer function for `BigInt`
+
+We can test the `value` and transform based on its type
 
 ```javascript
 function replacer (key, value) {
@@ -22,7 +26,11 @@ function replacer (key, value) {
 }
 ```
 
-... it's harder to see how to transform back from a `String` to a `BigInt` without additional information
+It's hard to argue with the simplicity of transforming from a `BigInt` to a `String` but it's harder to see how we should transform back from a `String` to a `BigInt` without some _additional information_
+
+#### A typical reviver function
+
+Should we transform every `String`?
 
 ```javascript
 function reviver (key, value) {
@@ -32,9 +40,11 @@ function reviver (key, value) {
 }
 ```
 
-Should we use a catch block? Format the _key_ or _value_ in such away that we can test them, and then decide what to do?
+We could use a catch block. Or else format the _key_ or _value_ such that we can test one or both of them, and then decide what to do
 
-_Fat Json_ will supply a _[JSONPath](https://en.wikipedia.org/wiki/JSONPath)_ as the third argument to your _replacer_ or _reviver_ function. If you know the structure of your data in advance you can serialise and de-serialise safely and in one step
+## Fat Json's third argument
+
+_Fat Json_ supplies a _[JSONPath](https://en.wikipedia.org/wiki/JSONPath)_ as the third argument to your _replacer_ or _reviver_ function so you can decide _whether to transform a value by its position in the JSON document_, not just by its `key` or `value`. If you know the structure of your data in advance you can serialise and de-serialise safely and in one step
 
 ```javascript
 import {

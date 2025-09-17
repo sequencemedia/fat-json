@@ -48,5 +48,8 @@
     "#common": "./src/common/index.mjs",
     "#fat-json": "./src/index.mjs",
     "#transformers": "./src/transformers/index.mjs"
+  },
+  "exports": {
+    "./transformers": "./src/transformers/index.mjs"
   }
 }
