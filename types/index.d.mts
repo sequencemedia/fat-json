@@ -7,5 +7,3 @@ export namespace PathTypes {
   export type ObjectPathDescriptor = FatJsonTypes.PathTypes.ObjectPathDescriptor
   export type PathDescriptor = FatJsonTypes.PathTypes.PathDescriptor
 }
-
-export default function genPath (key: PropertyKey, value: ValueType, context: ArrayLiteralType | ObjectLiteralType): IterableIterator<PathTypes.PathDescriptor>

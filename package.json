@@ -12,7 +12,7 @@
   ],
   "main": "./src/index.mjs",
   "type": "module",
-  "types": "./src/index.d.mts",
+  "types": "./index.d.mts",
   "author": {
     "name": "Jonathan Perry for Sequence Media Limited",
     "email": "sequencemedia@sequencemedia.net",
@@ -47,7 +47,8 @@
   "imports": {
     "#common": "./src/common/index.mjs",
     "#fat-json": "./src/index.mjs",
-    "#transformers": "./src/transformers/index.mjs"
+    "#transformers": "./src/transformers/index.mjs",
+    "#types": "./types/index.d.mts"
   },
   "exports": {
     "./transformers": "./src/transformers/index.mjs"

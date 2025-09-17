@@ -1,6 +1,7 @@
 /**
- *  @typedef {FatJsonTypes.ValueType} ValueType
+ *  @typedef {import('#types').ValueType} ValueType
  */
+
 import getPath from './replacer/index.mjs'
 import genPath from './reviver/index.mjs'
 

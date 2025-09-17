@@ -7,6 +7,26 @@
     "noEmit": true,
     "strict": true,
     "isolatedModules": true,
-    "baseUrl": "."
-  }
+    "paths": {
+      "#common": [
+        "./src/common/index.mjs"
+      ],
+      "#fat-json": [
+        "./src/index.mjs"
+      ],
+      "#transformers": [
+        "./src/transformers/index.mjs"
+      ],
+      "#types": [
+        "./types/index.d.mts"
+      ]
+    }
+  },
+  "include": [
+    ".",
+    "./types"
+  ],
+  "exclude": [
+    "./test"
+  ]
 }

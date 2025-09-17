@@ -1,8 +1,10 @@
 /**
- *  @typedef {FatJsonTypes.ArrayLiteralType} ArrayLiteralType
- *  @typedef {FatJsonTypes.ObjectLiteralType} ObjectLiteralType
- *  @typedef {FatJsonTypes.ValueType} ValueType
- *  @typedef {FatJsonTypes.WeakMapType} WeakMapType
+ *  @typedef {import('#types').ArrayLiteralType} ArrayLiteralType
+ *  @typedef {import('#types').ObjectLiteralType} ObjectLiteralType
+ *  @typedef {import('#types').ValueType} ValueType
+ *  @typedef {import('#types').PathTypes.ArrayPathDescriptor} PathTypes.ArrayPathDescriptor
+ *  @typedef {import('#types').PathTypes.ObjectPathDescriptor} PathTypes.ObjectPathDescriptor
+ *  @typedef {import('#types').PathTypes.PathDescriptor} PathTypes.PathDescriptor
  */
 
 import {
@@ -13,9 +15,9 @@ import {
 } from '#common'
 
 /**
- *  @param {any[]} context
+ *  @param {ArrayLiteralType} context
  *  @param {string} contextPath
- *  @returns {IterableIterator<{ key: PropertyKey; value: unknown; path: string; context: any }>}
+ *  @returns {IterableIterator<PathTypes.ArrayPathDescriptor>}
  */
 function * genPathForArray (context, contextPath) {
   for (const [key, value] of context.entries()) {
@@ -37,9 +39,9 @@ function * genPathForArray (context, contextPath) {
 }
 
 /**
- *  @param {any} context
+ *  @param {ObjectLiteralType} context
  *  @param {string} contextPath
- *  @returns {IterableIterator<{ key: PropertyKey; value: unknown; path: string; context: any }>}
+ *  @returns {IterableIterator<PathTypes.ObjectPathDescriptor>}
  */
 function * genPathForObject (context, contextPath) {
   for (const [key, value] of Object.entries(context)) {
@@ -62,9 +64,9 @@ function * genPathForObject (context, contextPath) {
 
 /**
  *  @param {PropertyKey} key
- *  @param {unknown} value
- *  @param {any | any[]} context
- *  @returns {IterableIterator<{ key: PropertyKey; value: unknown; path: string; context: any }>}
+ *  @param {ValueType} value
+ *  @param {ArrayLiteralType | ObjectLiteralType} context
+ *  @returns {IterableIterator<PathTypes.PathDescriptor>}
  */
 export default function * genPath (key, value, context) {
   const valuePath = key

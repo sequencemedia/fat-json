@@ -1,3 +1,9 @@
+/**
+ *  @typedef {import('#types').ArrayLiteralType} ArrayLiteralType
+ *  @typedef {import('#types').ObjectLiteralType} ObjectLiteralType
+ *  @typedef {import('#types').ValueType} ValueType
+ */
+
 import {
   formatNumber,
   formatString,
@@ -5,12 +11,15 @@ import {
   isObject
 } from '#common'
 
+/**
+ *  @type {WeakMap<WeakKey, ArrayLiteralType | ObjectLiteralType>}
+ */
 const MAP = new WeakMap()
 
 /**
  *  @param {PropertyKey} key
- *  @param {unknown} value
- *  @param {any} context
+ *  @param {ValueType} value
+ *  @param {ArrayLiteralType | ObjectLiteralType} context
  *  @returns {string}
  */
 export default function getPath (key, value, context) {

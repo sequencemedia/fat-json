@@ -1,4 +1,4 @@
-type ValueType = FatJsonTypes.ValueType
+export type ValueType = FatJsonTypes.ValueType
 
 declare const BIG_INT: RegExp
 

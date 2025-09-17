@@ -1,5 +1,5 @@
 /**
- *  @typedef {FatJsonTypes.ValueType} ValueType
+ *  @typedef {import('#types').ValueType} ValueType
  */
 
 export const BIG_INT = /^(\d+)n$/
