@@ -30,7 +30,7 @@
     "test": "mocha test --recursive"
   },
   "devDependencies": {
-    "@sequencemedia/eslint-config-standard": "^0.2.84",
+    "@sequencemedia/eslint-config-standard": "^0.2.85",
     "@sequencemedia/eslint-config-typescript": "^0.1.143",
     "@types/chai": "^5.2.2",
     "@types/mocha": "^10.0.10",
