@@ -40,7 +40,8 @@ export default [
       'test'
     ],
     rules: {
-      '@typescript-eslint/no-explicit-any': 'off'
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-redundant-type-constituents': 'off'
     },
     languageOptions: {
       globals: {
