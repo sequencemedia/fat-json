@@ -34,7 +34,7 @@
     "@sequencemedia/eslint-config-typescript": "^0.1.182",
     "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^24.10.1",
+    "@types/node": "^25.0.2",
     "@types/sinon": "^21.0.0",
     "chai": "^6.2.1",
     "eslint": "9.38.0",
