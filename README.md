@@ -1,6 +1,6 @@
 # Fat Json
 
-Stringify and parse non-standard JSON [data types](#from-wikipedia): _reviver_ and _replacer_ functions for the built-in `JSON` object
+Stringify and parse non-standard JSON data types: _reviver_ and _replacer_ functions for the built-in `JSON` object
 
 ## Install
 
