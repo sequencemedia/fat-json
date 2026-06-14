@@ -1,6 +1,7 @@
 {
   "name": "fat-json",
   "version": "0.0.63",
+  "description": "Stringify and parse non-standard JSON data types: Reviver and Replacer functions for the built-in JSON object",
   "keywords": [
     "JSON",
     "stringify",
