@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@sequencemedia/eslint-config-standard": "^0.2.132",
-    "@sequencemedia/eslint-config-typescript": "^0.1.228",
+    "@sequencemedia/eslint-config-typescript": "^0.1.229",
     "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
     "@types/node": "^26.6.5",
