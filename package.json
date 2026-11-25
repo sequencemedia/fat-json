@@ -31,11 +31,11 @@
     "test": "mocha test --recursive"
   },
   "devDependencies": {
-    "@sequencemedia/eslint-config-standard": "0.4.3",
-    "@sequencemedia/eslint-config-typescript": "0.2.15",
+    "@sequencemedia/eslint-config-standard": "0.4.4",
+    "@sequencemedia/eslint-config-typescript": "0.2.16",
     "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^26.6.6",
+    "@types/node": "^26.6.7",
     "@types/sinon": "^22.0.2",
     "chai": "^6.3.0",
     "eslint": "10.15.0",
